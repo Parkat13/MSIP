@@ -1,0 +1,29 @@
+Задача
+
+Hodtel -> ?hotel, hostel
+od|o - 9 раз, d|s - 7 раз
+hotel - 5x, hostel - x
+o - 1.2y, s - y
+
+Без сглаживания
+
+         correct letter   error letter    x|w     P(x|w)     P(w)     P(x|w)*P(w)
+hotel          -               d         od|o     9/1.2y      5x      (9*5x)/1.2y
+hostel         s               d          d|s       7/y        x        (7*x)/y
+
+(9*5x)/1.2y = 37.5x/y - hotel
+(7*x)/y = 7x/y - hostel
+Значение для hotel больше -> наиболее вероятен вариант hotel
+
+Сглаживание по Лапласу
+
+Таблица отличается только значением P(x|w) для hostel, т.к. в hostel замена(substitution), а в hotel удаление(deletion)
+
+         correct letter   error letter    x|w     P(x|w)     P(w)     P(x|w)*P(w)
+hotel          -               d         od|o     9/1.2y      5x      (9*5x)/1.2y
+hostel         s               d          d|s   (7+1)/(y+26)   x    ((7+1)*x)/(y+26)
+
+(9*5x)/1.2y = 37.5x/y - hotel
+((7+1)*x)/(y+26) = 8x/(y+26) - hostel
+Значение для hotel больше -> наиболее вероятен вариант hotel
+
